@@ -49,7 +49,7 @@ async def fetch_link_preview(url: str) -> Dict[str, Optional[str]]:
     # Fallback to /favicon.ico if not found
     if not favicon:
         parsed = urlparse(url)
-        favicon = f"{parsed.scheme}://{parsed.netloc}/favicon.ico"
+        favicon = f"{parsed.scheme}://{parsed.netloc}/dq_f_w.ico"
     elif favicon and not favicon.startswith('http'):
         favicon = urljoin(url, favicon)
     # OG Title

@@ -2,7 +2,7 @@
 import { useOrg } from '@components/Contexts/OrgContext'
 import { signOut } from 'next-auth/react'
 import ToolTip from '@components/Objects/StyledElements/Tooltip/Tooltip'
-import LearnHouseDashboardLogo from '@public/dashLogo.png'
+import DGLogo from '@public/DG_LOGO.png'
 import { Backpack, BadgeDollarSign, BookCopy, Home, LogOut, Package2, School, Settings, Users, Vault } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -60,14 +60,15 @@ function DashLeftMenu() {
               side="right"
             >
               <Image
-                alt="Learnhouse logo"
+                alt="DQ logo"
                 width={40}
-                src={LearnHouseDashboardLogo}
+                src={DGLogo}
               />
             </ToolTip>
             <ToolTip
               content={'Your Organization'}
               slateBlack
+              
               sideOffset={8}
               side="right"
             >

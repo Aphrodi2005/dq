@@ -15,9 +15,13 @@ RUN curl -fsSL https://deb.nodesource.com/setup_21.x | bash - \
 # Frontend Build
 FROM base AS deps
 
-ENV NEXT_PUBLIC_LEARNHOUSE_API_URL=http://localhost/api/v1/
-ENV NEXT_PUBLIC_LEARNHOUSE_BACKEND_URL=http://localhost/
-ENV NEXT_PUBLIC_LEARNHOUSE_DOMAIN=localhost
+ARG NEXT_PUBLIC_LEARNHOUSE_API_URL=http://localhost/api/v1/
+ARG NEXT_PUBLIC_LEARNHOUSE_BACKEND_URL=http://localhost/
+ARG NEXT_PUBLIC_LEARNHOUSE_DOMAIN=localhost
+
+ENV NEXT_PUBLIC_LEARNHOUSE_API_URL=$NEXT_PUBLIC_LEARNHOUSE_API_URL
+ENV NEXT_PUBLIC_LEARNHOUSE_BACKEND_URL=$NEXT_PUBLIC_LEARNHOUSE_BACKEND_URL
+ENV NEXT_PUBLIC_LEARNHOUSE_DOMAIN=$NEXT_PUBLIC_LEARNHOUSE_DOMAIN
 
 WORKDIR /app/web
 COPY ./apps/web/package.json ./apps/web/pnpm-lock.yaml* ./
@@ -26,7 +30,6 @@ RUN rm -f .env*
 RUN if [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i --frozen-lockfile && pnpm run build; \
     else echo "Lockfile not found." && exit 1; \
     fi
-
 # Final image
 FROM base as runner 
 RUN addgroup --system --gid 1001 system \

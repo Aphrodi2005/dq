@@ -14,6 +14,8 @@ import Link from 'next/link'
 import { signUpWithInviteCode } from '@services/auth/auth'
 import { useOrg } from '@components/Contexts/OrgContext'
 import { signIn } from 'next-auth/react'
+// Попробуем импортировать toast если доступен
+// import toast from 'react-hot-toast'
 
 const validate = (values: any) => {
   const errors: any = {}
@@ -72,22 +74,46 @@ function InviteOnlySignUpComponent(props: InviteOnlySignUpProps) {
       setError('')
       setMessage('')
       setIsSubmitting(true)
-      let res = await signUpWithInviteCode(values, props.inviteCode)
-      let message = await res.json()
-      if (res.status == 200) {
-        //router.push(`/login`);
-        setMessage('Your account was successfully created')
-        setIsSubmitting(false)
-      } else if (
-        res.status == 401 ||
-        res.status == 400 ||
-        res.status == 404 ||
-        res.status == 409
-      ) {
-        setError(message.detail)
-        setIsSubmitting(false)
-      } else {
-        setError('Something went wrong')
+      
+      try {
+        let res = await signUpWithInviteCode(values, props.inviteCode)
+        let responseData = await res.json()
+        
+        console.log('Registration response:', res.status, responseData) // Для отладки
+        
+        if (res.status == 200 || res.status == 201) {
+          // Изменено сообщение об успешной регистрации
+          setMessage('You successfully registered!')
+          setIsSubmitting(false)
+          
+          // Попробуем показать toast если доступен
+          try {
+            // Раскомментируйте если toast доступен:
+            // toast.success('You successfully registered!', { duration: 4000 })
+          } catch (e) {
+            console.log('Toast not available')
+          }
+          
+          // Дополнительно показываем alert для гарантии (можете убрать после тестирования)
+          setTimeout(() => {
+            alert('You successfully registered!')
+          }, 100)
+          
+        } else if (
+          res.status == 401 ||
+          res.status == 400 ||
+          res.status == 404 ||
+          res.status == 409
+        ) {
+          setError(responseData.detail || 'Registration failed')
+          setIsSubmitting(false)
+        } else {
+          setError('Something went wrong')
+          setIsSubmitting(false)
+        }
+      } catch (error) {
+        console.error('Registration error:', error)
+        setError('Network error occurred')
         setIsSubmitting(false)
       }
     },

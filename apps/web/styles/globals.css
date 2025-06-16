@@ -79,8 +79,8 @@ layer(base);
   .custom-dots-bg {
     @apply bg-fixed;
     background-image:
-      radial-gradient(#4744446b 1px, transparent 1px),
-      radial-gradient(#4744446b 1px, transparent 1px);
+      radial-gradient(#263d5a 1px, transparent 1px),
+      radial-gradient(#263d5a 1px, transparent 1px);
     background-position:
       0 0,
       25px 25px;
@@ -123,8 +123,8 @@ layer(base);
 
   @media (prefers-color-scheme: dark) {
     body {
-      color: black;
-      background: #fbfbfb;
+      color: #000000;
+      background: #ffffff;
     }
   }
 
@@ -142,8 +142,8 @@ layer(base);
   }
   /* Give a remote user a caret */
   .collaboration-cursor__caret {
-    border-left: 1px solid #0d0d0d;
-    border-right: 1px solid #0d0d0d;
+    border-left: 1px solid #ff0000;
+    border-right: 1px solid #3cff00;
     margin-left: -1px;
     margin-right: -1px;
     pointer-events: none;

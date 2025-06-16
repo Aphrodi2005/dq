@@ -1,4 +1,3 @@
-version: "3.9"
 services:
   app:
     build: .
@@ -22,6 +21,9 @@ services:
       - POSTGRES_USER=learnhouse
       - POSTGRES_PASSWORD=learnhouse
       - POSTGRES_DB=learnhouse
+    volumes:
+      # ДОБАВЛЕНО: персистентное хранение данных БД
+      - postgres_data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U learnhouse"]
       interval: 5s
@@ -32,6 +34,9 @@ services:
     restart: always
     ports:
       - "6379:6379"
+    volumes:
+      # ДОБАВЛЕНО: персистентное хранение данных Redis
+      - redis_data:/data
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 5s
@@ -41,3 +46,12 @@ services:
     image: chromadb/chroma:0.5.16
     ports:
       - "8000:8000"
+    volumes:
+      # ДОБАВЛЕНО: персистентное хранение данных ChromaDB
+      - chroma_data:/chroma/chroma
+
+# ДОБАВЛЕНО: именованные volumes для персистентного хранения
+volumes:
+  postgres_data:
+  redis_data:
+  chroma_data:
