@@ -39,8 +39,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-logfire.configure(console=False, service_name=learnhouse_config.site_name,)
-logfire.instrument_fastapi(app)
+#logfire.configure(console=False, service_name=learnhouse_config.site_name,)
+#logfire.instrument_fastapi(app)
 
 # Gzip Middleware (will add brotli later)
 app.add_middleware(GZipMiddleware, minimum_size=1000)

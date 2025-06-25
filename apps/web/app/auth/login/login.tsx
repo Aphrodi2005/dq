@@ -53,33 +53,29 @@ const LoginClient = (props: LoginClientProps) => {
     validate,
     validateOnBlur: true,
     validateOnChange: true,
-    onSubmit: async (values, {validateForm, setErrors, setSubmitting}) => {
+    onSubmit: async (values, { validateForm, setErrors, setSubmitting }) => {
       setIsSubmitting(true)
-      const errors = await validateForm(values);
+
+      const errors = await validateForm(values)
       if (Object.keys(errors).length > 0) {
-        setErrors(errors);
-        setSubmitting(false);
-        return;
+        setErrors(errors)
+        setSubmitting(false)
+        return
       }
-      
+
       const res = await signIn('credentials', {
-        redirect: false,
+        redirect: true,
         email: values.email,
         password: values.password,
-        callbackUrl: '/redirect_from_auth'
-      });
+        callbackUrl: '/redirect_from_auth',
+      })
+
       if (res && res.error) {
-        setError("Wrong Email or password");
-        setIsSubmitting(false);
-      } else {
-        await signIn('credentials', {
-          email: values.email,
-          password: values.password,
-          callbackUrl: '/redirect_from_auth'
-        });
+        setError("Wrong Email or password")
+        setIsSubmitting(false)
       }
-    },
-  })
+     }
+	})
 
   return (
     <div className="grid grid-flow-col justify-stretch h-screen">
