@@ -97,3 +97,5 @@ Learn about LearnHouse and how to use it, using LearnHouse
 Learnhouse is made with 💜, from the UI to the features it is carefully designed to make students and teachers lives easier and make education software more enjoyable.
 
 Thank you and have fun using/developing/testing LearnHouse !
+# learnDQ
+# learnDQ
