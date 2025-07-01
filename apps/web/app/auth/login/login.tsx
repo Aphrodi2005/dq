@@ -1,5 +1,5 @@
 'use client'
-import learnhouseIcon from 'public/learnhouse_bigicon_1.png'
+import learnhouseIcon from 'public/dq_f_w.png'
 import FormLayout, {
   FormField,
   FormLabelAndMessage,
@@ -164,15 +164,6 @@ const LoginClient = (props: LoginClientProps) => {
                 />
               </Form.Control>
             </FormField>
-            <div>
-              <Link
-                href={{ pathname: getUriWithoutOrg('/forgot'), query: props.org.slug ? { orgslug: props.org.slug } : null }}
-                passHref
-                className="text-xs text-gray-500 hover:underline"
-              >
-                Forgot password?
-              </Link>
-            </div>
             <div className="flex  py-4">
               <Form.Submit asChild>
                 <button  className="w-full bg-black text-white font-bold text-center p-2 rounded-md shadow-md hover:cursor-pointer">
@@ -188,10 +179,6 @@ const LoginClient = (props: LoginClientProps) => {
               <UserRoundPlus size={17} />
               <span>Sign up</span>
             </Link>
-            <button onClick={() => signIn('google', { callbackUrl: '/redirect_from_auth' })} className="flex justify-center py-3 text-md w-full bg-white text-slate-600 space-x-3 font-semibold text-center p-2 rounded-md shadow-sm hover:cursor-pointer">
-              <img src="https://fonts.gstatic.com/s/i/productlogos/googleg/v6/24px.svg" alt="" />
-              <span>Sign in with Google</span>
-            </button>
           </div>
         </div>
       </div>

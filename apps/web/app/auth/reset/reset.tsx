@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import React from 'react'
-import learnhouseIcon from 'public/learnhouse_bigicon_1.png'
+import learnhouseIcon from 'public/dq_f_black.png'
 import FormLayout, {
     FormField,
     FormLabelAndMessage,

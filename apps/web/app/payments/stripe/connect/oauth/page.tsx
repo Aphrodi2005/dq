@@ -9,7 +9,7 @@ import { motion } from 'framer-motion'
 import toast from 'react-hot-toast'
 import { verifyStripeConnection } from '@services/payments/payments'
 import Image from 'next/image'
-import learnhouseIcon from 'public/learnhouse_bigicon_1.png'
+import learnhouseIcon from 'public/dq_f_black.png'
 
 function StripeConnectCallback() {
   const router = useRouter()

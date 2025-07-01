@@ -33,12 +33,11 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origin_regex=learnhouse_config.hosting_config.allowed_regexp,
-    allow_methods=["*"],
+    allow_origins=["http://51.158.99.183", "http://51.158.99.183:3000"],
     allow_credentials=True,
+    allow_methods=["*"],
     allow_headers=["*"],
 )
-
 #logfire.configure(console=False, service_name=learnhouse_config.site_name,)
 #logfire.instrument_fastapi(app)
 

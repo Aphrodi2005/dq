@@ -2,13 +2,13 @@
 import React from 'react'
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
-import learnhouseIcon from 'public/learnhouse_icon.png'
+import learnhouseIcon from 'public/dq_f_black.png'
 import { ToolbarButtons } from './Toolbar/ToolbarButtons'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import styled from 'styled-components'
 import { DividerVerticalIcon, SlashIcon } from '@radix-ui/react-icons'
-import learnhouseAI_icon from 'public/learnhouse_ai_simple.png'
+import learnhouseAI_icon from 'public/dq_l_blue.png'
 import {
   AIEditorStateTypes,
   useAIEditor,
@@ -222,7 +222,7 @@ function Editor(props: Editor) {
                       props.org?.org_uuid,
                       props.course.course_uuid,
                       props.course.thumbnail_image
-                    ) : getUriWithOrg(props.org?.slug, '/empty_thumbnail.png')}`}
+                    ) : getUriWithOrg(props.org?.slug, '/dq_f_blue.png')}`}
                     alt=""
                   ></EditorInfoThumbnail>
                 </Link>

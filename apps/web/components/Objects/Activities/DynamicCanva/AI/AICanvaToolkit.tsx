@@ -1,6 +1,6 @@
 import React from 'react'
 import { Editor } from '@tiptap/core'
-import learnhouseAI_icon from 'public/learnhouse_ai_simple.png'
+import learnhouseAI_icon from 'public/dq_l_blue.png'
 import Image from 'next/image'
 import { BookOpen, FormInput, Languages, MoreVertical } from 'lucide-react'
 import { BubbleMenu } from '@tiptap/react'

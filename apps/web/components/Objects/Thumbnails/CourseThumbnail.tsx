@@ -75,7 +75,7 @@ function CourseThumbnail({ course, orgslug, customLink }: PropsType) {
 
   const thumbnailImage = course.thumbnail_image
     ? getCourseThumbnailMediaDirectory(org?.org_uuid, course.course_uuid, course.thumbnail_image)
-    : '../empty_thumbnail.png'
+    : '../dq_f_blue.png'
 
   return (
     <div className="relative flex flex-col bg-white rounded-xl nice-shadow overflow-hidden min-w-[280px] w-full max-w-sm shrink-0">

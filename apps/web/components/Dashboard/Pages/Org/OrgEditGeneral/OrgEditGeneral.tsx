@@ -19,7 +19,7 @@ import { Switch } from "@components/ui/switch"
 import { mutate } from 'swr'
 import { getAPIUrl } from '@services/config/config'
 import Image from 'next/image'
-import learnhouseIcon from '@public/learnhouse_logo.png'
+import learnhouseIcon from '@public/dq_bl.png'
 import Link from 'next/link'
 
 const ORG_LABELS = [

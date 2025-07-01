@@ -71,16 +71,13 @@ function Courses(props: CourseProps) {
               <div className="col-span-full flex justify-center items-center py-8">
                 <div className="text-center">
                   <div className="mb-4">
-                    <svg
-                      width="50"
-                      height="50"
-                      viewBox="0 0 295 295"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="mx-auto"
-                    >
-                      {/* ... SVG content ... */}
-                    </svg>
+		    <img
+  		    src="/final_logo2.png"
+  		    alt="Logo"
+  		    width={100}
+  		    height={100}
+  		    className="mx-auto"
+		  />
                   </div>
                   <h1 className="text-xl font-bold text-gray-600 mb-2">
                     No courses yet

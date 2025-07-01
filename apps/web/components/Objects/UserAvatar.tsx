@@ -56,7 +56,7 @@ function UserAvatar(props: UserAvatarProps) {
   const getAvatarUrl = (): string => {
     // If predefined avatar is specified
     if (props.predefined_avatar) {
-      const avatarType = props.predefined_avatar === 'ai' ? 'ai_avatar.png' : 'empty_avatar.png'
+      const avatarType = props.predefined_avatar === 'ai' ? 'dq_l_blue.png' : 'dq_l_blue.png'
       return getUriWithOrg(params.orgslug, `/${avatarType}`)
     }
 
@@ -98,7 +98,7 @@ function UserAvatar(props: UserAvatarProps) {
     }
 
     // Fallback to empty avatar
-    return getUriWithOrg(params.orgslug, '/empty_avatar.png')
+    return getUriWithOrg(params.orgslug, '/dq_l_blue_empty_avatar.png')
   }
 
   const avatarImage = (

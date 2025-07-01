@@ -251,7 +251,7 @@ const CourseClient = (props: any) => {
                       <div
                         className="inset-0 ring-1 ring-inset ring-black/10 rounded-lg shadow-xl relative w-full h-[400px] bg-cover bg-center"
                         style={{
-                          backgroundImage: `url('../empty_thumbnail.png')`,
+                          backgroundImage: `url('../dq_f_blue.png')`,
                           backgroundSize: 'auto',
                         }}
                       ></div>

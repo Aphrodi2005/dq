@@ -4,8 +4,8 @@ services:
       context: .
     env_file:
       - .env
-    ports: 
-      - "3000:80"
+    ports:
+      - "80:80"
     environment:
       NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
       NEXT_PUBLIC_LEARNHOUSE_MULTI_ORG: ${NEXT_PUBLIC_LEARNHOUSE_MULTI_ORG}
@@ -24,6 +24,7 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+
   db:
     image: postgres:16-alpine
     restart: always
@@ -33,22 +34,35 @@ services:
       - POSTGRES_USER=learnhouse
       - POSTGRES_PASSWORD=learnhouse
       - POSTGRES_DB=learnhouse
+    volumes:
+      - pgdata:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U learnhouse"]
       interval: 5s
       timeout: 4s
       retries: 5
+
   redis:
     image: redis:7.2.3
     restart: always
     ports:
       - "6379:6379"
+    volumes:
+      - redisdata:/data
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 5s
       timeout: 4s
       retries: 5
+
   chromadb:
     image: chromadb/chroma:0.5.16
     ports:
       - "8000:8000"
+    volumes:
+      - chromadata:/chroma/chroma
+
+volumes:
+  pgdata:
+  redisdata:
+  chromadata:

@@ -170,7 +170,7 @@ function ThumbnailUpdate({ thumbnailType }: ThumbnailUpdateProps) {
             course.courseStructure.course_uuid,
             course.courseStructure.thumbnail_image
           )
-        : '/empty_thumbnail.png';
+        : '/dq_f_blue.png';
     } else {
       return course.courseStructure.thumbnail_video
         ? getCourseThumbnailMediaDirectory(
